@@ -7,6 +7,10 @@ services:
     hostname: consulserver01
     # comando para manter o container em execução
     command: ['tail', '-f', '/dev/null']
+    volumes:
+      - ./clients/server01:/etc/consul.d
+    ports:
+      - 8500:8500
   consulserver02:
     image: consul:1.10
     container_name: consulserver02
